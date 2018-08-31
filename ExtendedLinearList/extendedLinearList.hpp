@@ -10,6 +10,7 @@ class extendedLinearList : public LinearList<T> {
         virtual ~extendedLinearList() { }
         virtual void clear() = 0;
         virtual void push_back(const T&) = 0;
+        virtual void reverse() = 0;
 };
 
 #endif // __EXTENDEDLIST

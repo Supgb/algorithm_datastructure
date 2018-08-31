@@ -18,7 +18,11 @@ int main(int argc, char const *argv[])
         std::cout << "chain1 contains (after calling clear method) " << chain1 << std::endl;
         chain1.push_back(100);
         chain1.push_back(109);
+        chain1.push_back(83);
+        chain1.push_back(78);
         std::cout << "chain1 contains (after calling push_back method) " << chain1 << std::endl;
+        chain1.reverse();
+        std::cout << "chain1 contains (after calling reverse method) " << chain1 << std::endl;
     }
     catch(const char* e)
     {

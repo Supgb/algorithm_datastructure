@@ -28,6 +28,7 @@ class extendedChain :  public extendedLinearList<T>,
 
         virtual void clear();
         virtual void push_back(const T&);
+        virtual void reverse();
 };
 
 template <typename T>
@@ -143,6 +144,23 @@ void extendedChain<T>::clear() {
 template <typename T>
 void extendedChain<T>::push_back(const T& theElement) {
     insert(this->listSize, theElement);
+}
+
+/* 原地颠倒链表元素，即不使用额外的空间 */
+template <typename T>
+void extendedChain<T>::reverse() {
+    // 新建指针用于遍历，并将末节点指针指向首节点
+    chainNode<T>* p = this->firstNode->next;
+    chainNode<T>* np;
+    lastNode = this->firstNode;
+    while(p != nullptr){
+        np = p->next;
+        p->next = this->firstNode;  // 使链表中两元素链域反向
+        this->firstNode = p;
+        p = np;
+    }    
+    // 避免形成环状链表
+    lastNode->next = nullptr;
 }
 
 #endif // __EXTENDEDCHAIN_H
