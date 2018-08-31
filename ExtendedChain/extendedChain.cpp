@@ -100,16 +100,17 @@ template <typename T>
 void extendedChain<T>::insert(int theIndex, const T& theElement) {
     
     if (theIndex < 0 || theIndex > this->listSize) {
-        throw "out of range [extendedChain]";
+        throw "out of range -- when insert element [extendedChain]";
     }
     if (theIndex == this->listSize-1) {
         /* 在链表尾部插入元素 */
-
+        chainNode<T>* p = lastNode;
+        p->next = new chainNode<T>(theElement, p->next);
+        lastNode = p->next;
+        this->listSize++;
     } else {
-
-    }
-    
-    
+        Chain<T>::insert(theIndex, theElement);
+    }    
 }
 
 template <typename T>
