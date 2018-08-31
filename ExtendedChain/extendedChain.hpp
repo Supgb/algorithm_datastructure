@@ -128,14 +128,21 @@ void extendedChain<T>::output(std::ostream& out) const {
 }
 
 template <typename T>
-void extendedChain<T>::clear() {
-    Chain<T>::~Chain();
+void extendedChain<T>::clear() {    
+    chainNode<T>* t;
+    while(this->firstNode != nullptr) {
+        std::cout << "Clear " << this->firstNode->element << std::endl;
+        t = this->firstNode->next;
+        delete this->firstNode;
+        this->firstNode = t;        
+    }
     lastNode = nullptr;
+    this->listSize = 0;
 }
 
 template <typename T>
 void extendedChain<T>::push_back(const T& theElement) {
-    insert(this->listSize-1, theElement);
+    insert(this->listSize, theElement);
 }
 
 #endif // __EXTENDEDCHAIN_H

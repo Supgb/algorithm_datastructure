@@ -14,7 +14,11 @@ int main(int argc, char const *argv[])
         std::cout << "chain contains " << *chain << std::endl;
         std::cout << "the size of chain is " << chain->size() << std::endl;
         std::cout << "chain1 contains " << chain1 << std::endl;
-        
+        chain1.clear();
+        std::cout << "chain1 contains (after calling clear method) " << chain1 << std::endl;
+        chain1.push_back(100);
+        chain1.push_back(109);
+        std::cout << "chain1 contains (after calling push_back method) " << chain1 << std::endl;
     }
     catch(const char* e)
     {
