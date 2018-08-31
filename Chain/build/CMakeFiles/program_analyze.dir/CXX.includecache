@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../LinearList/LinearList.hpp
+iostream
+-
+
+/home/sgb/vs_code_dev/git_data_structure/Chain/Chain.cpp
+Chain.hpp
+/home/sgb/vs_code_dev/git_data_structure/Chain/Chain.hpp
+
+/home/sgb/vs_code_dev/git_data_structure/Chain/Chain.hpp
+iostream
+-
+LinearList.hpp
+/home/sgb/vs_code_dev/git_data_structure/Chain/LinearList.hpp
+

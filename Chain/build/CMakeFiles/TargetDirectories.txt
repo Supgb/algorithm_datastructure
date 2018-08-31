@@ -1,0 +1,3 @@
+/home/sgb/vs_code_dev/git_data_structure/Chain/build/CMakeFiles/edit_cache.dir
+/home/sgb/vs_code_dev/git_data_structure/Chain/build/CMakeFiles/rebuild_cache.dir
+/home/sgb/vs_code_dev/git_data_structure/Chain/build/CMakeFiles/program_analyze.dir
