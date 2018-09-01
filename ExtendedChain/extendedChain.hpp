@@ -29,6 +29,10 @@ class extendedChain :  public extendedLinearList<T>,
         virtual void clear();
         virtual void push_back(const T&);
         virtual void reverse();
+        virtual extendedChain<T>& meld(
+            const extendedChain<T>&,
+            const extendedChain<T>&
+        );
 };
 
 template <typename T>
@@ -161,6 +165,14 @@ void extendedChain<T>::reverse() {
     }    
     // 避免形成环状链表
     lastNode->next = nullptr;
+}
+
+template <typename T>
+extendedChain<T>& extendedChain<T>::meld(
+            const extendedChain<T>& chain_a,
+            const extendedChain<T>& chain_b
+        ) {
+    
 }
 
 #endif // __EXTENDEDCHAIN_H
