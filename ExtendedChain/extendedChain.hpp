@@ -172,7 +172,24 @@ extendedChain<T>& extendedChain<T>::meld(
             const extendedChain<T>& chain_a,
             const extendedChain<T>& chain_b
         ) {
-    
+    chainNode<T>* p = this->firstNode;
+    chainNode<T>* p_a = chain_a.firstNode;
+    chainNode<T>* p_b = chain_b.firstNode;
+    chainNode<T>* t_a = p_a->next;
+    chainNode<T>* t_b = p_b;
+    for(size_t i = 0; t_b != nullptr; i++)
+    {        
+        p_a->next = t_b;
+        t_b = t_b->next;
+        p_b->next = t_a;   
+        p_a = t_a;
+        p_b = t_b; 
+        if(t_a == nullptr)break;
+        t_a = t_a->next;        
+    }
+    this->listSize = chain_a.listSize + chain_b.listSize;
+    this->firstNode = chain_a.firstNode;
+    this->lastNode = chain_b.lastNode;
 }
 
 #endif // __EXTENDEDCHAIN_H
