@@ -177,14 +177,15 @@ extendedChain<T>& extendedChain<T>::meld(
     chainNode<T>* p_b = chain_b.firstNode;
     chainNode<T>* t_a = p_a->next;
     chainNode<T>* t_b = p_b;
-    for(size_t i = 0; t_b != nullptr; i++)
+    while(1)
     {        
-        p_a->next = t_b;
+        if(t_b == nullptr)break;
+        p_a->next = t_b;        
         t_b = t_b->next;
+        if(t_a == nullptr)break;
         p_b->next = t_a;   
         p_a = t_a;
-        p_b = t_b; 
-        if(t_a == nullptr)break;
+        p_b = t_b;         
         t_a = t_a->next;        
     }
     this->listSize = chain_a.listSize + chain_b.listSize;

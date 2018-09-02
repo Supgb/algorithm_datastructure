@@ -22,6 +22,8 @@ int main(int argc, char const *argv[])
         chain1.push_back(109);
         chain1.push_back(83);
         chain1.push_back(78);
+        chain1.push_back(798);
+        chain1.push_back(21);
         std::cout << "chain1 contains (after calling push_back method) " << chain1 << std::endl;
         chain1.reverse();
         std::cout << "chain  contains (after calling reverse method) " << *chain << std::endl;
