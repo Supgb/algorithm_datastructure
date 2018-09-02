@@ -101,6 +101,7 @@ void extendedChain<T>::erase(int theIndex) {
         lastNode = p;
         delete deleteNode;
         this->listSize--;
+        
     } else {
         Chain<T>::erase(theIndex);
     }
@@ -167,6 +168,9 @@ void extendedChain<T>::reverse() {
     lastNode->next = nullptr;
 }
 
+/* 
+
+ */
 template <typename T>
 extendedChain<T>& extendedChain<T>::meld(
             extendedChain<T>& chain_a,

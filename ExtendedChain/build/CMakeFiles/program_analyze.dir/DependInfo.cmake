@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sgb/vs_code_dev/git_data_structure/ExtendedChain/extendedChain.cpp" "/home/sgb/vs_code_dev/git_data_structure/ExtendedChain/build/CMakeFiles/program_analyze.dir/extendedChain.cpp.o"
+  "/home/sgb/vscode_base/algorithm_datastructure/ExtendedChain/extendedChain.cpp" "/home/sgb/vscode_base/algorithm_datastructure/ExtendedChain/build/CMakeFiles/program_analyze.dir/extendedChain.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
