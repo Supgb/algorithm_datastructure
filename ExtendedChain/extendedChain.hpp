@@ -30,8 +30,8 @@ class extendedChain :  public extendedLinearList<T>,
         virtual void push_back(const T&);
         virtual void reverse();
         virtual extendedChain<T>& meld(
-            const extendedChain<T>&,
-            const extendedChain<T>&
+            extendedChain<T>&,
+            extendedChain<T>&
         );
 };
 
@@ -169,8 +169,8 @@ void extendedChain<T>::reverse() {
 
 template <typename T>
 extendedChain<T>& extendedChain<T>::meld(
-            const extendedChain<T>& chain_a,
-            const extendedChain<T>& chain_b
+            extendedChain<T>& chain_a,
+            extendedChain<T>& chain_b
         ) {
     chainNode<T>* p = this->firstNode;
     chainNode<T>* p_a = chain_a.firstNode;
@@ -190,6 +190,8 @@ extendedChain<T>& extendedChain<T>::meld(
     this->listSize = chain_a.listSize + chain_b.listSize;
     this->firstNode = chain_a.firstNode;
     this->lastNode = chain_b.lastNode;
+    chain_a.firstNode = nullptr; chain_a.lastNode = nullptr; chain_a.listSize = 0;
+    chain_b.firstNode = nullptr; chain_b.lastNode = nullptr; chain_b.listSize = 0;
 }
 
 #endif // __EXTENDEDCHAIN_H

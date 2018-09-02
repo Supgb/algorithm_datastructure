@@ -15,8 +15,8 @@ class extendedLinearList : public LinearList<T> {
         virtual void push_back(const T&) = 0;
         virtual void reverse() = 0;
         virtual extendedLinearList<T>& meld(
-            const extendedChain<T>&,
-            const extendedChain<T>&
+            extendedChain<T>&,
+            extendedChain<T>&
         ) = 0;
 };
 
