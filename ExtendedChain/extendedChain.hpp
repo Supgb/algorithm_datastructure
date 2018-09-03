@@ -5,6 +5,7 @@
 #include <iostream>
 #include "extendedLinearList.hpp"
 #include "Chain.hpp"
+#include "Iterator.hpp"
 
 template <typename T>
 class extendedChain :  public extendedLinearList<T>,
@@ -13,6 +14,8 @@ class extendedChain :  public extendedLinearList<T>,
         chainNode<T>* lastNode;
 
     public:
+        typedef T value_type;   // For template parameter deriving.
+
         extendedChain();
         extendedChain(const extendedChain<T>&);
 
@@ -33,6 +36,10 @@ class extendedChain :  public extendedLinearList<T>,
             extendedChain<T>&,
             extendedChain<T>&
         );
+
+        // methods for supporting Iterator
+        Iterator<extendedChain<T>> begin() {return Iterator<extendedChain<T>>(this->firstNode);}
+        Iterator<extendedChain<T>> end() {return Iterator<extendedChain<T>>(this->firstNode+this->listSize);}
 };
 
 template <typename T>
