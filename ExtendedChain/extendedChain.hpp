@@ -14,8 +14,8 @@ class extendedChain :  public extendedLinearList<T>,
         chainNode<T>* lastNode;
 
     public:
-        typedef T value_type;   // For template parameter deriving.
-
+        typedef chainNode<T> value_type;   // For template parameter deriving.        
+        typedef T element_type;
         extendedChain();
         extendedChain(const extendedChain<T>&);
 
@@ -39,7 +39,13 @@ class extendedChain :  public extendedLinearList<T>,
 
         // methods for supporting Iterator
         Iterator<extendedChain<T>> begin() {return Iterator<extendedChain<T>>(this->firstNode);}
-        Iterator<extendedChain<T>> end() {return Iterator<extendedChain<T>>(this->firstNode+this->listSize);}
+        Iterator<extendedChain<T>> end() {
+            chainNode<T>* t = this->firstNode;
+            for (int i = 0; i < this->listSize; i++) {
+                t = t->next;
+            }
+            return Iterator<extendedChain<T>>(t);
+            }
 };
 
 template <typename T>

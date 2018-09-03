@@ -7,6 +7,9 @@
 
 template <typename T>
 struct chainNode {
+    template <class Y>
+    friend std::ostream& operator<<(std::ostream& out,
+                                    const chainNode<Y>& node);
     // 数据成员
     T element;
     // 链域
@@ -19,6 +22,12 @@ struct chainNode {
         this->next = next;
     }
 };
+
+template <class T>
+std::ostream& operator<<(std::ostream& out, const chainNode<T>& node) {
+    out << node.element;
+    return out;
+}
 
 template <typename T>
 class Chain : public LinearList<T> {
