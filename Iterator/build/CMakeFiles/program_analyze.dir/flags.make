@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11 -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/sgb/vscode_base/algorithm_datastructure/Iterator/../LinearList -I/home/sgb/vscode_base/algorithm_datastructure/Iterator/../ExtendedLinearList -I/home/sgb/vscode_base/algorithm_datastructure/Iterator/../Chain -I/home/sgb/vscode_base/algorithm_datastructure/Iterator/../ExtendedChain 
+CXX_INCLUDES = -I/home/sgb/vscode_base/algorithm_datastructure/Iterator/../LinearList -I/home/sgb/vscode_base/algorithm_datastructure/Iterator/../ExtendedLinearList -I/home/sgb/vscode_base/algorithm_datastructure/Iterator/../Chain -I/home/sgb/vscode_base/algorithm_datastructure/Iterator/../ExtendedChain -I/home/sgb/vscode_base/algorithm_datastructure/Iterator/. 
 

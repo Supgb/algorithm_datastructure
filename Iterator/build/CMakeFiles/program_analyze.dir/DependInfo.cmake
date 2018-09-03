@@ -14,6 +14,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../../ExtendedLinearList"
   "../../Chain"
   "../../ExtendedChain"
+  "../."
   )
 
 # Targets to which this target links.

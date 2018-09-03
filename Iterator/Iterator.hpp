@@ -16,9 +16,9 @@ public:
     typename T::value_type& operator*() const;
     typename T::value_type* operator->() const;
     Iterator<T>& operator++(); // 前加
-    Iterator<T>& operator++(int); // 后加
+    Iterator<T> operator++(int); // 后加
     Iterator<T>& operator--(); // 前减
-    Iterator<T>& operator--(int); // 后减
+    Iterator<T> operator--(int); // 后减 注意由于需要使用到临时变量，不可放回其应用，而应交由复制构造函数
     bool operator==(const Iterator<T>& right) const;
     bool operator!=(const Iterator<T>& right) const;
 };
@@ -51,30 +51,30 @@ Iterator<T>::operator->() const {
 
 template <class T>
 Iterator<T>& Iterator<T>::operator++() {
-    ++position;
+    position = position->next;
     return *this;
 }
 
 template <class T>
-Iterator<T>& Iterator<T>::operator++(int) {
-    Iterator t;
+Iterator<T> Iterator<T>::operator++(int) {
+    Iterator<T> t;
     t = *this;
-    ++position;
+    position = position->next;
     return t;
 }
 
 template <class T>
 Iterator<T>& Iterator<T>::operator--() {
-    --position;
+    position = position->next;
     return *this;
 }
 
 template <class T>
-Iterator<T>& Iterator<T>::operator--(int) {
-    Iterator t;
+Iterator<T> Iterator<T>::operator--(int) {
+    Iterator<T> t;
     t = *this;
-    --position;
-    return *this;
+    position = position->next;
+    return t;
 }
 
 template <class T>
