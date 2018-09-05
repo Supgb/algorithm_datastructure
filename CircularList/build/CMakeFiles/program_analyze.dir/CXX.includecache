@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../Chain/Chain.hpp
+iostream
+-
+LinearList.hpp
+../../Chain/LinearList.hpp
+
+../../ExtendedChain/extendedChain.hpp
+iostream
+-
+extendedLinearList.hpp
+../../ExtendedChain/extendedLinearList.hpp
+Chain.hpp
+../../ExtendedChain/Chain.hpp
+Iterator.hpp
+../../ExtendedChain/Iterator.hpp
+
+../../ExtendedLinearList/extendedLinearList.hpp
+LinearList.hpp
+../../ExtendedLinearList/LinearList.hpp
+
+../../Iterator/Iterator.hpp
+iostream
+-
+
+../../LinearList/LinearList.hpp
+iostream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/CircularList/CircularList.cpp
+CircularList.hpp
+/home/sgb/vscode_base/algorithm_datastructure/CircularList/CircularList.hpp
+
+/home/sgb/vscode_base/algorithm_datastructure/CircularList/CircularList.hpp
+iostream
+-
+extendedChain.hpp
+/home/sgb/vscode_base/algorithm_datastructure/CircularList/extendedChain.hpp
+
