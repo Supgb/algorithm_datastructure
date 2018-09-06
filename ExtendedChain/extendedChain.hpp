@@ -215,11 +215,18 @@ extendedChain<T>& extendedChain<T>::meld(
 
 template <class T>
 void extendedChain<T>::merge(extendedChain<T>& chain) {
-    this->lastNode->next = chain.firstNode;
-    this->lastNode = chain.lastNode;
-    this->listSize += chain.listSize;
-    chain.firstNode = nullptr;
-    chain.lastNode = nullptr;
+    if(!chain.listSize){;} // Do nothing when chain is empty
+    else if(this->listSize == 0) { // when the current object is empty
+        this->firstNode = chain.firstNode;
+        this->lastNode = chain.lastNode;
+        this->listSize += chain.listSize;
+    } else {
+        this->lastNode->next = chain.firstNode;
+        this->lastNode = chain.lastNode;
+        this->listSize += chain.listSize;
+        chain.firstNode = nullptr;
+        chain.lastNode = nullptr;
+    }
 }
 
 #endif // __EXTENDEDCHAIN_H
