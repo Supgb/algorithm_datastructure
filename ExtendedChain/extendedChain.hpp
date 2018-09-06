@@ -36,6 +36,7 @@ class extendedChain :  public extendedLinearList<T>,
             extendedChain<T>&,
             extendedChain<T>&
         );
+        void merge(extendedChain<T>&); // connect a chain back to the current one.
 
         // methods for supporting Iterator
         Iterator<extendedChain<T>> begin() {return Iterator<extendedChain<T>>(this->firstNode);}
@@ -207,9 +208,18 @@ extendedChain<T>& extendedChain<T>::meld(
     }
     this->listSize = chain_a.listSize + chain_b.listSize;
     this->firstNode = chain_a.firstNode;
-    this->lastNode = chain_b.lastNode;
+    this->lastNode = chain_a.listSize > chain_b.listSize ? chain_a.lastNode : chain_b.lastNode;
     chain_a.firstNode = nullptr; chain_a.lastNode = nullptr; chain_a.listSize = 0;
     chain_b.firstNode = nullptr; chain_b.lastNode = nullptr; chain_b.listSize = 0;
+}
+
+template <class T>
+void extendedChain<T>::merge(extendedChain<T>& chain) {
+    this->lastNode->next = chain.firstNode;
+    this->lastNode = chain.lastNode;
+    this->listSize += chain.listSize;
+    chain.firstNode = nullptr;
+    chain.lastNode = nullptr;
 }
 
 #endif // __EXTENDEDCHAIN_H

@@ -26,8 +26,14 @@ int main(int argc, char const *argv[])
         std::cout << "chain  contains (after calling reverse method) " << *chain << std::endl;
         std::cout << "chain1 contains (after calling reverse method) " << chain1 << std::endl;
         extendedChain<int> chain2;
-        chain2.meld(*chain, chain1);
+        chain2.meld(*chain, chain1); // The meld method will clear both of params.
+        chain1.push_back(100);
+        chain1.push_back(109);
+        chain1.push_back(83);
         std::cout << "chain2 contains (after calling meld method) " << chain2 << std::endl;
+        std::cout << chain1 << std::endl;
+        chain2.merge(chain1);
+        std::cout << "chain2 contains (after calling merge method) " << chain2 << std::endl;
     }
     catch(const char* e)
     {
