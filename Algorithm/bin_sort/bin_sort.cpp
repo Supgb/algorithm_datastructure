@@ -31,6 +31,9 @@ extendedChain<T> bin_sort(extendedChain<T>& chain, int range) {
     for(iter = chain.begin();iter != chain.end(); ++iter) {
         bins[*iter].push_back(*iter);
     }
+    // Can let extendedChain structure provide
+    // a merge method to speed up the following
+    // step to have a O(range) efficiency
     for(size_t i = 0; i < range; ++i) {
         for(iter_b = bins[i].begin(); iter_b != bins[i].end(); ++iter_b) {
             r_chain.push_back(*iter_b);
