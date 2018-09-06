@@ -3,6 +3,9 @@
 template <class T>
 extendedChain<T> bin_sort(extendedChain<T>& chain, int range);
 
+template <class T>
+extendedChain<T> bin_sort_fast(extendedChain<T>& chain, int range);
+
 int main(int argc, char const *argv[]) {
     extendedChain<int> chain;
     chain.push_back(4);
@@ -15,9 +18,8 @@ int main(int argc, char const *argv[]) {
     chain.push_back(2);
     chain.push_back(4);
     chain.push_back(6);
-    
-    extendedChain<int> result = bin_sort(chain, 10);
-    std::cout << "The result of bin sorting is " << result << std::endl;
+    extendedChain<int> result = bin_sort_fast(chain, 10);
+    std::cout << "The result of bin sorting is " << result << std::endl;    
     return 0;
 }
 
@@ -39,5 +41,24 @@ extendedChain<T> bin_sort(extendedChain<T>& chain, int range) {
             r_chain.push_back(*iter_b);
         }
     }
+    return r_chain;
+}
+
+// Non-decreasing order
+// Efficiency: O(range+n)
+template <class T>
+extendedChain<T> bin_sort_fast(extendedChain<T>& chain, int range) {
+    extendedChain<T> r_chain;
+    extendedChain<T>* bins = new extendedChain<T>[range];   // Bins are a set of chain    
+    Iterator<extendedChain<int>> iter, iter_b;
+    for(iter = chain.begin();iter != chain.end(); ++iter) {
+        bins[*iter].push_back(*iter);
+    }
+    // Can let extendedChain structure provide
+    // a merge method to speed up the following
+    // step to have a O(range) efficiency
+    for(size_t i = 0; i < range; ++i) {
+        r_chain.merge(bins[i]);        
+    }    
     return r_chain;
 }
