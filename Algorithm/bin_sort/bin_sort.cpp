@@ -1,10 +1,7 @@
-#include "extendedChain.hpp"
-
-template <class T>
-extendedChain<T> bin_sort(extendedChain<T>& chain, int range);
-
-template <class T>
-extendedChain<T> bin_sort_fast(extendedChain<T>& chain, int range);
+/* 
+    Test for bin sort.    
+ */
+#include "bin_sort.hpp"
 
 int main(int argc, char const *argv[]) {
     extendedChain<int> chain;
@@ -51,13 +48,13 @@ extendedChain<T> bin_sort_fast(extendedChain<T>& chain, int range) {
     extendedChain<T> r_chain;
     extendedChain<T>* bins = new extendedChain<T>[range];   // Bins are a set of chain    
     Iterator<extendedChain<int>> iter, iter_b;
-    for(iter = chain.begin();iter != chain.end(); ++iter) {
+    for(iter = chain.begin();iter != chain.end(); ++iter) { // Iterating times depends on num of elements
         bins[*iter].push_back(*iter);
     }
     // Can let extendedChain structure provide
     // a merge method to speed up the following
     // step to have a O(range) efficiency
-    for(size_t i = 0; i < range; ++i) {
+    for(size_t i = 0; i < range; ++i) { // Iterating times depends on num of bins
         r_chain.merge(bins[i]);        
     }    
     return r_chain;
