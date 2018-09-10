@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../LinearList/LinearList.hpp
+iostream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/DoublyLinkedList/DoublyLinkedList.cpp
+DoublyLinkedList.hpp
+/home/sgb/vscode_base/algorithm_datastructure/DoublyLinkedList/DoublyLinkedList.hpp
+
+/home/sgb/vscode_base/algorithm_datastructure/DoublyLinkedList/DoublyLinkedList.hpp
+LinearList.hpp
+/home/sgb/vscode_base/algorithm_datastructure/DoublyLinkedList/LinearList.hpp
+
