@@ -38,7 +38,8 @@ public:
     void push(const T& element);
 
     // Custom functions
-    void split(ArrayStack<T>&, ArrayStack<T>&); // Split the current stack to two stacks.
+    void split(ArrayStack<T>&, ArrayStack<T>&) const; // Split the current stack to two stacks.
+    ArrayStack<T> merge(const ArrayStack<T>&) const;    // merge two stacks, and make sure that the second stack is above the first one.
 
 };
 
@@ -90,7 +91,7 @@ void ArrayStack<T>::push(const T& element) {
 }
 
 template <class T>
-void ArrayStack<T>::split(ArrayStack<T>& Stack1, ArrayStack<T>& Stack2) {
+void ArrayStack<T>::split(ArrayStack<T>& Stack1, ArrayStack<T>& Stack2) const {
     size_t __size = this->stackTop + 1;
     for(size_t i = 0; i < __size/2; ++i) {
         Stack1.push(this->stack[i]);        
@@ -98,6 +99,15 @@ void ArrayStack<T>::split(ArrayStack<T>& Stack1, ArrayStack<T>& Stack2) {
     for(size_t i = __size/2; i < __size; ++i) {
         Stack2.push(this->stack[i]);
     }
+}
+
+template <class T>
+ArrayStack<T> ArrayStack<T>::merge(const ArrayStack<T>& Stack) const {
+    ArrayStack<T> r_stack(*this);
+    for(size_t i = 0; i <= Stack.stackTop; ++i) {
+        r_stack.push(Stack.stack[i]);
+    }
+    return r_stack;
 }
 
 template <class T>
