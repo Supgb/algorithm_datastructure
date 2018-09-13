@@ -9,6 +9,12 @@ int main(int argc, char const *argv[]) {
     std::cout << "\n\n[Test copy constructor] :\n" << std::endl;
     ArrayStack<int> Stack2(Stack);    
     testOnStack(Stack2, 'd');
+    // Test the split method
+    Stack.pop();    // The origin data number is even, pop one out to test performance for odd case.
+    ArrayStack<int> d_stack1, d_stack2;
+    Stack.split(d_stack1, d_stack2);
+    std::cout << "d_stack1 contains: " << d_stack1 << std::endl;
+    std::cout << "d_stack2 contains: " << d_stack2 << std::endl;
     return 0;
 }
 

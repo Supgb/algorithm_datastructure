@@ -36,6 +36,10 @@ public:
     T& top() const {return stack[stackTop];}
     void pop();
     void push(const T& element);
+
+    // Custom functions
+    void split(ArrayStack<T>&, ArrayStack<T>&); // Split the current stack to two stacks.
+
 };
 
 template <class T>
@@ -83,6 +87,17 @@ void ArrayStack<T>::push(const T& element) {
         }        
     }
     stack[++stackTop] = element;    
+}
+
+template <class T>
+void ArrayStack<T>::split(ArrayStack<T>& Stack1, ArrayStack<T>& Stack2) {
+    size_t __size = this->stackTop + 1;
+    for(size_t i = 0; i < __size/2; ++i) {
+        Stack1.push(this->stack[i]);        
+    }
+    for(size_t i = __size/2; i < __size; ++i) {
+        Stack2.push(this->stack[i]);
+    }
 }
 
 template <class T>
