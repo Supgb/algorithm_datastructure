@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../Chain/Chain.hpp
+iostream
+-
+LinearList.hpp
+../../Chain/LinearList.hpp
+
+../../LinearList/LinearList.hpp
+iostream
+-
+
+../../Stack/Stack.hpp
+iostream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/LinkedStack/LinkedStack.cpp
+LinkedStack.hpp
+/home/sgb/vscode_base/algorithm_datastructure/LinkedStack/LinkedStack.hpp
+
+/home/sgb/vscode_base/algorithm_datastructure/LinkedStack/LinkedStack.hpp
+iostream
+-
+Chain.hpp
+/home/sgb/vscode_base/algorithm_datastructure/LinkedStack/Chain.hpp
+Stack.hpp
+/home/sgb/vscode_base/algorithm_datastructure/LinkedStack/Stack.hpp
+
