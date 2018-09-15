@@ -22,6 +22,9 @@ public:
     T& top() const;
     void pop();
     void push(const T&);
+
+    void pushNode(const chainNode<T>&);
+    chainNode<T> popNode();
 };
 
 template <class T>
@@ -73,6 +76,25 @@ void LinkedStack<T>::pop() {
     stackTop = stackTop->next;
     delete deleteNode;
     stackSize--;
+}
+
+template <class T>
+void LinkedStack<T>::pushNode(const chainNode<T>& node) {    
+    stackTop = new chainNode<T>(node.element, stackTop);
+    stackSize++;
+}
+
+template <class T>
+chainNode<T> LinkedStack<T>::popNode() {
+    if(stackTop == nullptr) {
+        throw "The Stack is empty!";
+    }
+    chainNode<T> *p = stackTop;
+    chainNode<T> NODE(p->element);
+    stackTop = stackTop->next;
+    delete p;
+    stackSize--;
+    return NODE;
 }
 
 template <class T>
