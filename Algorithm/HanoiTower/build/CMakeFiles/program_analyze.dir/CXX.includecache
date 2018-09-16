@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../../ArrayStack/ArrayStack.hpp
+iostream
+-
+Stack.hpp
+../../../ArrayStack/Stack.hpp
+
+../../../Stack/Stack.hpp
+iostream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/Algorithm/HanoiTower/Hanoi.cpp
+iostream
+-
+ArrayStack.hpp
+/home/sgb/vscode_base/algorithm_datastructure/Algorithm/HanoiTower/ArrayStack.hpp
+
