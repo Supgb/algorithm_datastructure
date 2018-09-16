@@ -34,5 +34,10 @@ bool parentheses_match(std::string& str) {
             }
         }
     }
-    return true;    
+    if(left_stack.empty()) {
+        return true;
+    } else {
+        std::cout << "The statement is invalid" << std::endl;
+        return false;
+    }    
 }
