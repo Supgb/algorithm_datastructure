@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../Queue/Queue.hpp
+iostream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/ArrayQueue/ArrayQueue.cpp
+ArrayQueue.hpp
+/home/sgb/vscode_base/algorithm_datastructure/ArrayQueue/ArrayQueue.hpp
+
+/home/sgb/vscode_base/algorithm_datastructure/ArrayQueue/ArrayQueue.hpp
+Queue.hpp
+/home/sgb/vscode_base/algorithm_datastructure/ArrayQueue/Queue.hpp
+
