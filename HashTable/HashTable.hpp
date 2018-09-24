@@ -75,10 +75,7 @@ size_t HashTable<K, E>::search(const K& theKey) const {
     if(table[homeBucket] == nullptr || table[homeBucket]->first == theKey) {
         return homeBucket;
     }
-    for(i = homeBucket+1; table[i] != nullptr && i != homeBucket; ++i) {
-        if(i > divisor) { // Make the table be circluar.
-            i = 0;
-        }
+    for(i = homeBucket+1; table[i] != nullptr && i != homeBucket; i=(++i)%divisor) {
         if(table[i]->first == theKey) {
             return i;   // Return its pos.
         }
