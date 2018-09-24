@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../PairNode/PairNode.hpp
+iostream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/HashTable/Hash.hpp
+iostream
+-
+sstream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/HashTable/HashTable.cpp
+HashTable.hpp
+/home/sgb/vscode_base/algorithm_datastructure/HashTable/HashTable.hpp
+sstream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/HashTable/HashTable.hpp
+Hash.hpp
+/home/sgb/vscode_base/algorithm_datastructure/HashTable/Hash.hpp
+PairNode.hpp
+/home/sgb/vscode_base/algorithm_datastructure/HashTable/PairNode.hpp
+

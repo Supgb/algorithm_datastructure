@@ -6,28 +6,30 @@
 
 template <class K, class E>
 class HashTable {
+    template <class A, class B>
+    friend std::ostream& operator<<(std::ostream&, const HashTable<A, B>& hashtable);
 private:
     std::pair<const K, E> **table; // Hash table pointer.
-    hash<K> hash;   // Hashing function for encoding the key.
+    hash<K> HASH;   // Hashing function for encoding the key.
     size_t dSize;   // The number of pairs in the table.
     size_t divisor; // equals to the number of the slot in the table.
                     // f(k) = k%divisor;
 public:
-    HashTable(int divisor);
+    HashTable(int divisor = 10);
     HashTable(const HashTable<K, E>&);
     ~HashTable();
     size_t search(const K& theKey) const;
-    std::pair<K, E> *find(const K& theKey) const;
+    std::pair<const K, E> *find(const K& theKey) const;
     void insert(const std::pair<K, E>& thePair);
 };
 
 template <class K, class E>
 HashTable<K, E>::HashTable(int divisor):
-hash(),
+HASH(),
 dSize(0)
 {
-    if(divisor < 0) {
-        throw "[Init] DIVISOR cannot be less than 0!";
+    if(divisor <= 0) {
+        throw "[Init] DIVISOR must be greater than 0!";
     }   
     this->divisor = divisor;
     table = new std::pair<const K, E> *[divisor];
@@ -56,7 +58,10 @@ HashTable<K, E>::HashTable(const HashTable<K, E>& hashtable) {
 
 template <class K, class E>
 HashTable<K, E>::~HashTable(){
-    delete
+    for(size_t i = 0; i < divisor; ++i) {
+        delete table[i];
+    }
+    delete [] table;
 }
 
 /* Search the table by key word.
@@ -65,7 +70,7 @@ HashTable<K, E>::~HashTable(){
     if the table is spare. */
 template <class K, class E>
 size_t HashTable<K, E>::search(const K& theKey) const {
-    size_t homeBucket = hash(theKey)%divisor;
+    size_t homeBucket = HASH(theKey)%divisor;
     size_t i;
     if(table[homeBucket] == nullptr || table[homeBucket]->first == theKey) {
         return homeBucket;
@@ -84,7 +89,7 @@ size_t HashTable<K, E>::search(const K& theKey) const {
 /* Return pointer points to the found pair,
     or return nullptr */
 template <class K, class E>
-std::pair<K, E> *HashTable<K, E>::find(const K& theKey) const {
+std::pair<const K, E> *HashTable<K, E>::find(const K& theKey) const {
     size_t position = search(theKey);
     if(table[position] != nullptr && table[position]->first == theKey) {
         return table[position];
@@ -110,5 +115,21 @@ void HashTable<K, E>::insert(const std::pair<K, E>& thePair) {
         }
     }
 }
+
+template <class K, class E>
+std::ostream& operator<<(std::ostream& out, const HashTable<K, E>& hashtable) {
+    for(size_t i = 0, count = 0; i < hashtable.divisor; ++i) {
+        if(hashtable.table[i] != nullptr) {
+            ++count;
+            out << "(" << hashtable.table[i]->first << ", "
+             << hashtable.table[i]->second << ")" << " ";
+        }
+        if(count == hashtable.dSize) {
+            break;
+        }
+    }
+    return out;
+}
+
 
 #endif // __HASHTABLE_H

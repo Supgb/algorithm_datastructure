@@ -7,7 +7,7 @@
 template <class T>
 class hash {
     public:
-        size_t operator()(const T theKey) {
+        size_t operator()(const T theKey) const {
             return static_cast<size_t>(theKey);
         }
 };
@@ -15,7 +15,7 @@ class hash {
 template <>
 class hash<std::string> {
     public:
-        size_t operator()(const std::string theKey) {
+        size_t operator()(const std::string theKey) const {
             size_t hashValue = 0;
             size_t len = static_cast<size_t>(theKey.length());
             for(size_t i = 0; i < len; ++i) {
