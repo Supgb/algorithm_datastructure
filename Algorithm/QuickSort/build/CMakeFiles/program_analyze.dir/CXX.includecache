@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sgb/vscode_base/algorithm_datastructure/Algorithm/QuickSort/quickSort.cpp
+iostream
+-
+sstream
+-
+vector
+-
+iterator
+-
+
