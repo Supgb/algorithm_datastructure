@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../Dictionary/Dictionary.hpp
+iostream
+-
+
+../../HashTable/Hash.hpp
+iostream
+-
+sstream
+-
+
+../../PairNode/PairNode.hpp
+iostream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/SortedChain/SortedChain.cpp
+SortedChain.hpp
+/home/sgb/vscode_base/algorithm_datastructure/SortedChain/SortedChain.hpp
+sstream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/SortedChain/SortedChain.hpp
+Dictionary.hpp
+/home/sgb/vscode_base/algorithm_datastructure/SortedChain/Dictionary.hpp
+PairNode.hpp
+/home/sgb/vscode_base/algorithm_datastructure/SortedChain/PairNode.hpp
+Hash.hpp
+/home/sgb/vscode_base/algorithm_datastructure/SortedChain/Hash.hpp
+
