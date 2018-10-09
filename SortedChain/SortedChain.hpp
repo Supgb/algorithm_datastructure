@@ -14,7 +14,7 @@ private:
     size_t p_size;    
 
 public:
-    SortedChain(int TheDivisor = 10);
+    SortedChain();
     SortedChain(const SortedChain<K, E>&);
 
     ~SortedChain();
@@ -26,7 +26,7 @@ public:
 };
 
 template <class K, class E>
-SortedChain<K, E>::SortedChain(int TheDivisor):
+SortedChain<K, E>::SortedChain():
 firstNode(nullptr),
 p_size(0)
 {
