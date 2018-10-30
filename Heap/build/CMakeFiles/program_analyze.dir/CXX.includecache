@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../ArrayStack/ArrayStack.hpp
+iostream
+-
+Stack.hpp
+../../ArrayStack/Stack.hpp
+
+../../PriorityQueue/PriorityQueue.hpp
+
+../../Stack/Stack.hpp
+iostream
+-
+
+/home/sgb/vscode_base/algorithm_datastructure/Heap/Heap.cpp
+Heap.hpp
+/home/sgb/vscode_base/algorithm_datastructure/Heap/Heap.hpp
+
+/home/sgb/vscode_base/algorithm_datastructure/Heap/Heap.hpp
+PriorityQueue.hpp
+/home/sgb/vscode_base/algorithm_datastructure/Heap/PriorityQueue.hpp
+ArrayStack.hpp
+/home/sgb/vscode_base/algorithm_datastructure/Heap/ArrayStack.hpp
+iostream
+-
+
