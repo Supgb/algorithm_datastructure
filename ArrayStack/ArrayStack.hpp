@@ -5,6 +5,12 @@
 #include "Stack.hpp"
 
 // Change the 1-D array's capacity.
+// Usage:
+// Input-> array:       the pointer points to the array going to resize.
+//         arrayLength: the origin length of the old array.
+//         newLength:   the expected length of the new array.
+// Output-> void
+// Result-> the array pointer points to a specified length array than before.
 template <class T>
 void changeLength1D(T *&array, size_t arrayLength, size_t newLength) {
     if(newLength < 0) {
