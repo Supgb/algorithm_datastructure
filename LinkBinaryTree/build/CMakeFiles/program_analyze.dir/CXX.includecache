@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../../BinaryTree/BinaryTree.hpp
+
+/home/sgb/vscode_base/algorithm_datastructure/LinkBinaryTree/LinkBinaryTree.cpp
+LinkBinaryTree.hpp
+/home/sgb/vscode_base/algorithm_datastructure/LinkBinaryTree/LinkBinaryTree.hpp
+
+/home/sgb/vscode_base/algorithm_datastructure/LinkBinaryTree/LinkBinaryTree.hpp
+BinaryTree.hpp
+/home/sgb/vscode_base/algorithm_datastructure/LinkBinaryTree/BinaryTree.hpp
+sstream
+-
+iostream
+-
+functional
+-
+
