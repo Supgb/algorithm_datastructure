@@ -4,6 +4,6 @@ project(program_analyze)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g")
 
-include_directories(../PairNode)
+include_directories(../PairNode ../HashTable ../SortedChain ../Dictionary)
 
-add_executable(program_analyze HashTable.cpp)
+add_executable(program_analyze HashChains.cpp)

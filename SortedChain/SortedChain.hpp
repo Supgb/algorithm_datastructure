@@ -35,13 +35,14 @@ p_size(0)
 
 template <class K, class E>
 SortedChain<K, E>::SortedChain(const SortedChain<K, E>& sortedChain) {    
+    std::cout << "[Constructor working]" << std::endl;
     if(!sortedChain.p_size) {
         firstNode = nullptr;
         p_size = 0;
     } else {        
         p_size = sortedChain.p_size;        
         PairNode<K, E> *s = sortedChain.firstNode;
-        firstNode = new PairNode<K, E>(s.firstNode->element, nullptr);
+        firstNode = new PairNode<K, E>(s->element, nullptr);
         s = s->next;
         PairNode<K, E> *t = firstNode;
         for(size_t i = 0; i < p_size; ++i) {
@@ -53,12 +54,13 @@ SortedChain<K, E>::SortedChain(const SortedChain<K, E>& sortedChain) {
 }
 
 template <class K, class E>
-SortedChain<K, E>::~SortedChain() {
+SortedChain<K, E>::~SortedChain() {    
     PairNode<K, E> *t = firstNode;
     for(size_t i = 0; i < p_size; ++i) {
         t = t->next;
         delete firstNode;
         firstNode = t;
+        std::cout << "Destructor working..." << std::endl;
     }
 }
 
@@ -118,17 +120,18 @@ void SortedChain<K, E>::erase(const K& theKey) {
         firstNode = firstNode->next;
         delete p;
         t = nullptr;
+        --p_size;
     }
     while(t != nullptr) {
         if(t->element.first == theKey) {
             p->next = t->next;
             delete t;
+            --p_size;
             break;
         }
         p = t;
         t = t->next;
-    }
-    --p_size;
+    }    
 }
 
 template <class K, class E>
