@@ -128,7 +128,7 @@ void Heap<T>::pop() {
 
 template <class T>
 void Heap<T>::pop_rearranger(int index) {
-    if(2*index > heapSize) {
+    if(2*index > heapSize) {    // There is not child at all.
         // delete this node
         if(index == heapSize) {
             // Normally delete.
@@ -139,11 +139,11 @@ void Heap<T>::pop_rearranger(int index) {
         }
         return;
 
-    } else if(2*index+1 > heapSize) {
+    } else if(2*index+1 > heapSize) {   // There is one child.
         heap[index] = heap[2*index];
         pop_rearranger(2*index);
     } else {
-        if((*comp)(heap[2*index], heap[2*index+1])) {
+        if((*comp)(heap[2*index], heap[2*index+1])) {   // There is two childs.
             heap[index] = heap[2*index];
             pop_rearranger(2*index);
         } else {
