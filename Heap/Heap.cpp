@@ -11,7 +11,14 @@ int main(int argc, char const *argv[]) {
     std::cout << heap.size() << std::endl;
     std::cout << heap.top() << std::endl;
     heap.push(8);
+    heap.push(2);
+    heap.push(13);
+    heap.push(42);
     std::cout << heap.size() << std::endl;
     std::cout << heap.top() << std::endl;
+    heap.pop();
+    std::cout << "The heap contains: " << heap << std::endl;
+    heap.pop();
+    std::cout << "The heap contains: " << heap << std::endl;
     return 0;
 }

@@ -26,6 +26,9 @@ class HeapException {
 template <class T>
 class Heap : public PriorityQueue<T> {
 
+    template <class Y>
+    friend std::ostream& operator<<(std::ostream&, const Heap<Y>&);
+
     private:
         T *heap;             // Heap entries
         int arrayLength;     // Heap capacity
@@ -76,6 +79,7 @@ class Heap : public PriorityQueue<T> {
         private:
             /* Rearrange the array to keep the priority right. */
             void push_rearranger(int index);
+            void pop_rearranger(int index);
 };
 
 template <class T>
@@ -98,8 +102,9 @@ comp(diff_func)
 template <class T>
 Heap<T>::Heap(const Heap& theHeap) {
     arrayLength = theHeap.arrayLength;
+    heapSize = theHeap.heapSize;
     heap = new T[arrayLength];
-    for(size_t i = 0; i < theHeap.heapSize; i++)
+    for(size_t i = 1; i < heapSize+1; i++)
     {
         heap[i] = theHeap.heap[i];
     }
@@ -107,7 +112,45 @@ Heap<T>::Heap(const Heap& theHeap) {
 
 template <class T>
 void Heap<T>::pop() {
+    // delete the root element. 
+    heap[1].~T();
+    // Check whether the capacity is more than four times greater than the Heap need,
+    // if so, shrink the capacity to a half of it.
+    if(arrayLength > 4*heapSize) {
+        changeLength1D(heap, arrayLength, arrayLength/2);
+        arrayLength /= 2;
+    }
 
+    // RE-arrange Heap
+    pop_rearranger(1);
+    --heapSize;
+}
+
+template <class T>
+void Heap<T>::pop_rearranger(int index) {
+    if(2*index > heapSize) {
+        // delete this node
+        if(index == heapSize) {
+            // Normally delete.
+            ;
+        } else {
+            // move the latest entry to this node.
+            heap[index] = heap[heapSize];
+        }
+        return;
+
+    } else if(2*index+1 > heapSize) {
+        heap[index] = heap[2*index];
+        pop_rearranger(2*index);
+    } else {
+        if((*comp)(heap[2*index], heap[2*index+1])) {
+            heap[index] = heap[2*index];
+            pop_rearranger(2*index);
+        } else {
+            heap[index] = heap[2*index+1];
+            pop_rearranger(2*index+1);
+        }
+    }
 }
 
 template <class T>
@@ -137,7 +180,14 @@ void Heap<T>::push_rearranger(int index) {
         heap[index] ^= heap[index/2];
     }
     push_rearranger(index/2);
-    return;
+}
+
+template <class T>
+std::ostream& operator<<(std::ostream& out, const Heap<T>& theHeap) {
+    for(size_t i = 1; i < theHeap.heapSize+1; ++i) {
+        out << theHeap.heap[i] << " ";
+    }
+    return out;
 }
 
 #endif // __HEAP_H
